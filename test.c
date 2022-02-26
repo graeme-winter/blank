@@ -4,7 +4,7 @@
 #include "pico/binary_info.h"
 #include "pico/multicore.h"
 
-static unsigned int counter;
+volatile unsigned int counter;
 
 const uint LED_PIN = 25;
 
@@ -12,8 +12,8 @@ void spinner() {
   counter = 0;
   while (1) {
     counter ++;
-    printf("Hello World %d\n", counter);
-    sleep_ms(1000);
+    //printf("Hello World %d\n", counter);
+    //sleep_ms(100);
   }
 }
 

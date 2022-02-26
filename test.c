@@ -12,8 +12,6 @@ void spinner() {
   counter = 0;
   while (1) {
     counter ++;
-    //printf("Hello World %d\n", counter);
-    //sleep_ms(100);
   }
 }
 
@@ -26,13 +24,12 @@ int main() {
 
   stdio_init_all();
 
-  // start the counter
   multicore_launch_core1(spinner);
 
   gpio_init(LED_PIN);
   gpio_set_dir(LED_PIN, GPIO_OUT);
   while (1) {
-    printf("Bye World %d\n", counter);
+    printf("Counter: %x\n", counter);
     if (led) {
       gpio_put(LED_PIN, 0);
       led = false;
